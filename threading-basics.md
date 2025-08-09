@@ -78,7 +78,9 @@ int main() {
     });
     t.join();
 }
+
 ---
+
 ## 3) Thread Lifecycle
 
 A thread in C++ typically moves through the following states during its existence. Understanding these stages helps with debugging, resource management, and performance tuning.
