@@ -47,7 +47,7 @@ int main() {
     t1.join();
     t2.join();
     std::cout << "Counter: " << counter << "\n";
-}
+} ```
 
 ---
 
