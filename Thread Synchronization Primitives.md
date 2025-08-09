@@ -48,3 +48,19 @@ int main() {
     t2.join();
     std::cout << "Counter: " << counter << "\n";
 }
+
+---
+
+## 3) RAII Lock Wrappers
+
+RAII locks release the mutex automatically when they go out of scope, preventing leaks and hard-to-debug hangs on exception paths. Prefer them over manual `lock()`/`unlock()` for correctness and clarity.
+
+- **`std::lock_guard<std::mutex>`**  
+  Lightweight scope guard: locks on construction, unlocks on destruction. No early unlock or timed features—use when you just need a simple critical section.
+  ```cpp
+  std::mutex m;
+  void f() {
+      std::lock_guard<std::mutex> g(m);  // lock
+      // critical section
+  }                                       // auto-unlock here
+
